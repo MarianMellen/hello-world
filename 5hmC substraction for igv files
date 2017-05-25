@@ -1,0 +1,8 @@
+#Rmv zeros 5hmC
+awk '{if ($4-$15>=0) print $1, $2, $3, $7, $4, $15, $4-$15, $8}' OFS="\t" PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.txt > PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.txt 
+
+#Subset by context and by modification. IGV file.
+ awk '{if ($8=="G") print $1, $2, $3, $4, $X}' OFS="\t" PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.txt > PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.5hmCG.igv
+
+#100 bp bins (ChromInfo.txt=/data1/genomes/Mus_musculus_UCSC_mm10/Mus_musculus/UCSC/mm10/Annotation/Genes/ChromInfo.txt)
+bedtools makewindows -g ChromInfo.txt -w 100 > mm10_100bp.txt
