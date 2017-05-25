@@ -12,7 +12,7 @@ cat fastq1.gz fastq2.gz fastq3.gz > allfiles-cat.gz
 trim_galore --stringency 3 --fastqc --paired R1.fastq R2.fastq
 
 #BISMARK alignment
-$ bismark --bowtie2 -R 1 -p 4 --multicore 4 --non_directional path/to/bismark10/ -1 R1.fq -2 R2.fq &
+$ bismark --bowtie2 -R 1 -p 4 --multicore 4 --non_directional path/to/bismark10/ -1 R1.fq -2 R2.fq &  */mnt/heintz-bambi3/WORK/eli/bismark10/*1950_OX_XRCC1_WT3_ATGTCA_L002_R1_001.merged_val_1.fq.gz 
  
 #scale up multicore for faster alignment not p!
  
