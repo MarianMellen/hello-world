@@ -6,3 +6,13 @@ awk '{if ($4-$15>=0) print $1, $2, $3, $7, $4, $15, $4-$15, $8}' OFS="\t" PC_BS_
 
 #100 bp bins (ChromInfo.txt=/data1/genomes/Mus_musculus_UCSC_mm10/Mus_musculus/UCSC/mm10/Annotation/Genes/ChromInfo.txt)
 bedtools makewindows -g ChromInfo.txt -w 100 > mm10_100bp.txt
+
+-or-
+
+awk '{print $1, $2, $3, $5, $5, 1}' OFS="\t" PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.5hmCA.igv > PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.5hmCA.tobin.txt
+
+binTool PC_BS_mergedBED.bed.PC_OX_mergedBED.bed.joined.nonzero.5hmCA.tobin.txt -k 100 -s 100 &
+
+#Check if it is correct in the viewer, then bin 100kb and compare between cell types.
+NOTE= For final data, mlml should be done *h
+
